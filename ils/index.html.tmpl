@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="language" content="italian" />
+	<meta name="robots" content="noarchive" />
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans|Nobile|Nobile:b" />
+	<link rel="stylesheet" type="text/css" href="http://planet.linux.it/css/planet.css" />
+
+	<title>Planet ILS</title>
+</head>
+
+<body>
+
+<div id="header">
+	<img src="images/logo.png" alt="Planet ILS" />
+	<div id="maintitle">Planet ILS</div>
+	<div id="payoff">News dai soci di Italian Linux Society</div>
+
+	<div class="menu">
+		<a class="generalink" href="http://planet.linux.it/lug/">Planet LUG</a> |
+		<a class="generalink" href="http://planet.linux.it/ils/">Planet ILS</a> |
+		<a class="generalink" href="http://planet.linux.it/contatti.html">Contatti</a>
+
+		<p class="social">
+			<!-- Icone prese da http://kooc.co.uk/need-some-up-to-date-social-media-icons -->
+			<a href="atom.xml"><img src="http://planet.linux.it/images/rss.png"></a>
+		</p>
+	</div>
+</div>
+
+<table id="introTabel" cellspacing="0" cellpadding="0">
+	<tr>
+		<td class="feedstream">
+			<TMPL_LOOP Items>
+			<TMPL_IF new_date>
+			<TMPL_UNLESS __FIRST__>
+			### End <div class="planet_channelgroup">
+			</div>
+			### End <div class="planet_daygroup">
+			</div>
+			</TMPL_UNLESS>
+			<div class="planet_daygroup">
+			<h2><TMPL_VAR new_date></h2>
+			</TMPL_IF>
+
+			<TMPL_IF new_channel>
+			<TMPL_UNLESS new_date>
+			### End <div class="planet_channelgroup">
+			</div>
+			</TMPL_UNLESS>
+			<div class="planet_channelgroup">
+
+			<h3><a href="<TMPL_VAR channel_link ESCAPE="HTML">" title="<TMPL_VAR channel_title_plain ESCAPE="HTML">"><TMPL_VAR channel_name></a></h3>
+			</TMPL_IF>
+
+			<div class="entrygroup" id="<TMPL_VAR id>"<TMPL_IF channel_language> lang="<TMPL_VAR channel_language>"</TMPL_IF>>
+			<TMPL_IF title>
+			<h4<TMPL_IF title_language> lang="<TMPL_VAR title_language>"</TMPL_IF>><a href="<TMPL_VAR link ESCAPE="HTML">"><TMPL_VAR title></a></h4>
+			</TMPL_IF>
+			<div class="planet_entry">
+			<div class="content"<TMPL_IF content_language> lang="<TMPL_VAR content_language>"</TMPL_IF>>
+			<TMPL_VAR content>
+			</div>
+
+			</div>
+			</div>
+
+			<TMPL_IF __LAST__>
+			### End <div class="planet_channelgroup">
+			</div>
+			### End <div class="planet_daygroup">
+			</div>
+			</TMPL_IF>
+			</TMPL_LOOP>
+		</td>
+		<td class="subscriptions">
+			<ul>
+				<TMPL_LOOP Channels>
+				<li>
+					<a href="<TMPL_VAR url ESCAPE="HTML">" title="subscribe"><img src="http://planet.linux.it/images/feed-icon-10x10.png" alt="(feed)"></a> <a <TMPL_IF link>href="<TMPL_VAR link ESCAPE="HTML">" </TMPL_IF><TMPL_IF message>class="message" title="<TMPL_VAR message ESCAPE="HTML">"</TMPL_IF><TMPL_UNLESS message>title="<TMPL_VAR title_plain ESCAPE="HTML">"</TMPL_UNLESS>><TMPL_VAR name></a>
+				</li>
+				</TMPL_LOOP>
+			</ul>
+		</td>
+	</tr>
+</table>
+
+<div id="footer">
+</div>
+
+<!-- Piwik -->
+<script type="text/javascript">
+var pkBaseURL = (("https:" == document.location.protocol) ? "https://pergamena.lugbs.linux.it/" : "http://pergamena.lugbs.linux.it/");
+document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+try {
+var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 7);
+piwikTracker.trackPageView();
+piwikTracker.enableLinkTracking();
+} catch( err ) {}
+</script><noscript><p><img src="http://pergamena.lugbs.linux.it/piwik.php?idsite=7" style="border:0" alt="" /></p></noscript>
+<!-- End Piwik Tracking Code -->
+
+</body>
+</html>
+

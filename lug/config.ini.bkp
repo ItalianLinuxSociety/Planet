@@ -1,0 +1,413 @@
+# Planet configuration file
+#
+# This illustrates some of Planet's fancier features with example.
+
+# Every planet needs a [Planet] section
+[Planet]
+# name: Your planet's name
+# link: Link to the main page
+# owner_name: Your name
+# owner_email: Your e-mail address
+name = Planet LUG
+link = http://lug.linux.it/
+owner_name = Carlo Perassi
+owner_email = carlo@linux.it
+
+# cache_directory: Where cached feeds are stored
+# new_feed_items: Number of items to take from new feeds
+# log_level: One of DEBUG, INFO, WARNING, ERROR or CRITICAL
+# feed_timeout: number of seconds to wait for any given feed
+cache_directory = lug/cache
+new_feed_items = 3
+log_level = INFO
+feed_timeout = 20
+
+# template_files: Space-separated list of output template files
+template_files = lug/index.html.tmpl lug/atom.xml.tmpl lug/rss20.xml.tmpl lug/rss10.xml.tmpl lug/opml.xml.tmpl lug/foafroll.xml.tmpl
+
+# The following provide defaults for each template:
+# output_dir: Directory to place output files
+# items_per_page: How many items to put on each page
+# days_per_page: How many complete days of posts to put on each page
+#                This is the absolute, hard limit (over the item limit)
+# date_format: strftime format for the default 'date' template variable
+# new_date_format: strftime format for the 'new_date' template variable
+# encoding: output encoding for the file, Python 2.3+ users can use the
+#           special "xml" value to output ASCII with XML character references
+# locale: locale to use for (e.g.) strings in dates, default is taken from your
+#         system. You can specify more locales separated by ':', planet will
+#         use the first available one
+output_dir = lug/output
+items_per_page = 60
+days_per_page = 0
+date_format = %d/%m/%Y %I:%M %p
+new_date_format = %d/%m/%Y
+encoding = utf-8
+# locale = C
+
+
+# To define a different value for a particular template you may create
+# a section with the same name as the template file's filename (as given
+# in template_files).
+
+# Provide no more than 7 days articles on the front page
+[/var/www/planetlug/index.html.tmpl]
+days_per_page = 10
+
+# If non-zero, all feeds which have not been updated in the indicated
+# number of days will be marked as inactive
+activity_threshold = 60
+
+
+# Options placed in the [DEFAULT] section provide defaults for the feed
+# sections.  Placing a default here means you only need to override the
+# special cases later.
+[DEFAULT]
+# Hackergotchi default size.
+# If we want to put a face alongside a feed, and it's this size, we
+# can omit these variables.
+facewidth = 65
+faceheight = 85
+
+
+[http://avezzanolug.org/rss.xml]
+name = AvezzanoLUG
+
+[http://lugcds.wordpress.com/feed/]
+name = LUG CdS
+
+[http://sulmonalug.it/rss.xml]
+name = SulmonaLug
+
+[http://www.pescaralug.org/feed/]
+name = PescaraLug
+
+[http://www.pilug.org/feed.php]
+name = PinetoLUG
+
+[http://www.telug.it/j/index.php?format=feed&type=rss]
+name = TeLug
+
+[http://www.materalinux.it/?feed=rss2]
+name = MateraLinux
+
+[http://www.baslug.org/?q=rss.xml]
+name = Baslug
+
+[http://hacklab.cz/rss.xml]
+name = HackLab CatanZaro
+
+[http://www.blug.it/feed/]
+name = Bogomips Lug
+
+[http://castrolug.altervista.org/index.php?format=feed&type=rss]
+name = CastroLug
+
+[http://hacklab.cosenzainrete.it/pg/blog/group%3A432?view=rss]
+name = Hacklab Cosenza
+
+[http://www.verdebinario.org/index2.php?option=com_rss&feed=RSS2.0&no_html=1]
+name = Verdebinario
+
+[http://rclug.linux.it/index.php?format=feed&type=rss]
+name = Reggio Calabria Lug
+
+[http://www.lilis.it/index.php?format=feed&type=rss]
+name = LiLiS
+
+[http://lugmanzoni.wordpress.com/feed/]
+name = LUG Manzoni
+
+[http://msack.org/feed/]
+name = MSACK Hacklab
+
+[http://www.nalug.net/rss.xml]
+name = NaLug
+
+[http://gurulug.wordpress.com/feed/]
+name = GuruLug
+
+[http://www.imolug.org/rss.xml]
+name = ImoLug
+
+[http://www.ferrara.linux.it/index.php?format=feed&type=rss]
+name = Ferrara Lug
+
+[http://www.folug.org/feed/]
+name = FoLug
+
+[http://www.uielinux.org/index.php?option=com_mmsblog&view=mmsblog&format=feed]
+name = UIELinux
+
+[http://www.parma.linux.it/rss.xml]
+name = ParmaLug
+
+[http://salabaganzalug.wordpress.com/feed/]
+name = SBLUG
+
+[http://www.riminilug.it/tiki-articles_rss.php?ver=2]
+name = RiminiLug
+
+[http://www.vallug.net/misc/backend.xml]
+name = ValLUG
+
+[http://trieste.linux.it/?feed=rss2]
+name = Lug Trieste
+
+[http://asci.cc.uniud.it/rss.xml]
+name = AsCI
+
+[http://carnialug.net/index.php?format=feed&type=rss]
+name = CarniaLUG
+
+[http://iglu.cc.uniud.it/?feed=rss2]
+name = IGLU
+
+[http://www.alproject.org/feed]
+name = Lug ALP
+
+[http://clug.netsons.org/?feed=rss2]
+name = Cassino Lug
+
+[http://linux-club.org/node/feed]
+name = Linux Club Italia
+
+[http://www.ls-lug.org/feed/]
+name = LSLug - La Sapienza Linux User Group
+
+[http://www.lugroma3.org/rss.xml]
+name = Lug Roma TRE
+
+[http://lug.uniroma2.it/feed/]
+name = Roma2LUG
+
+[http://www.sabazialug.org/feed/]
+name = SabaziaLug
+
+[http://www.tulug.it/blog/feed/]
+name = TuLug
+
+[http://www.govonis.org/index.php?format=feed&type=rss]
+name = Govonis GNU/LUG
+
+[http://bglug.it/feed/]
+name = BGLug
+
+[http://bglugvs.web3king.com/?feed=rss2]
+name = BGLug Valle Seriana
+
+[http://www.linuxzogno.org/?feed=rss2]
+name = Linux Club Zogno
+
+[http://www.circolab.net/feed/]
+name = CiRcOLaB
+
+[http://lugbs.linux.it/rss2.0/]
+name = LugBS
+
+[http://www.gl-como.it/feed/]
+name = GL-Como
+
+[http://filibusta.crema.unimi.it/?feed=rss2]
+name = Lug Crema
+
+[http://www.lugcr.it/lugcr/rss.xml]
+name = LugCR
+
+[http://www.lolug.org/?q=rss.xml]
+name = LoLug
+
+[http://www.lifos.org/feed/]
+name = LIFOS
+
+[http://www.lugbocconi.org/?feed=rss2]
+name = Lug Bocconi
+
+[http://lugdico.wordpress.com/feed/]
+name = Lugdico
+
+[http://www.pcofficina.org/feed/]
+name = PCOfficina
+
+[http://www.poul.org/feed/]
+name = POuL
+
+[http://viglug.org/feed/]
+name = ViGLug
+
+[http://www.lugducale.it/index.php?format=feed&type=rss]
+name = LUGDucale
+
+[http://www.ohosys.org/e107_plugins/rss_menu/rss.php?news.2]
+name = Ohosys.org
+
+[http://www.gullp.it/feed/]
+name = GULLP - Gruppo Utenti Linux Lonate Pozzolo
+
+[http://freegloo.wordpress.com/feed/]
+name = FreeGLOO
+
+[http://pdp.linux.it/feed/]
+name = PDP FSUG
+
+[http://www.senalug.org/rss.xml]
+name = SenaLUG
+
+[http://astrolabe.it/feed/]
+name = Astrolabe
+
+[http://lugascoli.kairosmedia.it/misc/backend.xml]
+name = LUG/FSUG Ascoli
+
+[http://camelug.it/index.php?format=feed&type=rss]
+name = Camelug
+
+[http://www.fanolug.org/index.php/feed]
+name = Fortunae Lug
+
+[http://hacklab-42.dark-lab.net/feed.php?mode=list&ns=]
+name = Hacklab-42
+
+[http://urbino-lug.tumblr.com/rss]
+name = Urbino-LUG
+
+[http://www.progettoradis.it/index.php?format=feed&type=rss]
+name = Progetto Radis
+
+[http://www.bilug.linux.it/custom/rss.xml]
+name = BiLug
+
+[http://abc.linux.it/feed/]
+name = ABC Lug
+
+[http://linoxnovara.wordpress.com/feed/]
+name = LiNOx
+
+[http://glugto.org/index.php?format=feed&type=rss]
+name = GlugTO
+
+[http://www.ivlug.it/feed/]
+name = IvLug
+
+[http://informaticalibera.info/index.php?format=feed&type=rss]
+name = Officina Informatica Libera
+
+[http://www.openlabto.org/news/RSS]
+name = Prometeo Libero
+
+[http://www.valsusinux.it/index.php?title=Speciale:UltimeModifiche&feed=atom]
+name = ValSusinux
+
+[http://www.latlug.org/index.php?format=feed&type=rss]
+name = LatLug
+
+[http://www.softwareliberosalento.it/index.php?format=feed&type=rss]
+name = Salento Open Source
+
+[http://masslug.wordpress.com/feed/]
+name = MassLug
+
+[http://www.gulch.it/rss.xml]
+name = GULCh
+
+[http://www.plugs.it/rss.xml]
+name = Plugs
+
+[http://www.clug.it/wiki/index.php?title=Speciale:UltimeModifiche&feed=atom]
+name = CLug
+
+[http://www.vplug.it/old/misc/backend.xml]
+name = VPLug
+
+[http://catania.linux.it/index2.php?option=com_rss&feed=RSS2.0&no_html=1]
+name = CataniaLUG
+
+[http://leonforte.linux.it/index.php?title=Speciale:UltimeModifiche&feed=atom]
+name = EnnaLUG
+
+[http://www.solira.org/feed/]
+name = SoLiRa
+
+[http://www.siracusa.linux.it/feeder.php]
+name = Lug Siracusa
+
+[http://museo.freaknet.org/feed/]
+name = Poetry Hacklab
+
+[http://www.slurpfoundation.it/index.php?format=feed&type=rss]
+name = S.L.U.R.P.
+
+[http://www.ipios.org/feed/]
+name = IPIOS
+
+[http://golem.linux.it/wp/feed/]
+name = GOLEM
+
+[http://www.firenze.linux.it/feed/]
+name = Flug
+
+[http://www.liberainformatica.it/newsite/index.php?format=feed&type=rss]
+name = Libera Informatica
+
+[http://www.grolug.org/rss.xml]
+name = GroLug
+
+[http://www.guruatwork.com/feed/]
+name = GuruAtWork
+
+[http://www.gullix.org/index.php?format=feed&type=rss]
+name = Gulli
+
+[http://luccalug.it/rss.xml]
+name = Lucca Lug
+
+[http://www.ptlug.org/feed/]
+name = PtLug
+
+[http://www.prato.linux.it/?q=rss.xml]
+name = Plug
+
+[http://www.elsaglug.org/index.php?format=feed&type=rss]
+name = ElsaGLUG
+
+[http://www.gnu.unisi.it/feed/]
+name = Progetto GNUnisi
+
+[http://www.lugbz.org/sdotnews-rss.xml]
+name = Lug Bolzano
+
+[http://www.linuxtrent.it/news/RSS]
+name = LinuxTrent
+
+[http://www.perugiagnulug.org/rss.xml]
+name = GNU/Lug Perugia
+
+[http://www.slag.it/node/feed]
+name = SLAG
+
+[http://www.montellug.it/feed]
+name = MontelLug
+
+[http://www.tvlug.it/rss.xml]
+name = TVLug
+
+[http://www.0421ug.org/index.php/?feed=rss2]
+name = 0421ug
+
+[http://linuxludus.it/rss.xml]
+name = LinuxLudus
+
+[http://www.lugverona.it/index.php/?feed=rss2]
+name = LugVR
+
+[http://www.officina-s3.org/?feed=rss2]
+name = Officina S3
+
+[http://grappalug.org/general-rss.xml]
+name = GrappaLUG
+
+[https://vicenza.linux.it/rss.xml]
+name = Lug Vicenza
+
+[http://www.fsugitalia.org/wp/feed/]
+name = FSUG Italia
