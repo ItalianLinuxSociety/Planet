@@ -160,7 +160,7 @@ template_files = lug/index.html.tmpl lug/atom.xml.tmpl lug/rss20.xml.tmpl lug/rs
 # locale: locale to use for (e.g.) strings in dates, default is taken from your
 #         system. You can specify more locales separated by ':', planet will
 #         use the first available one
-output_dir = lug/output
+output_dir = /var/www/planet/lug/
 items_per_page = 60
 days_per_page = 0
 date_format = %d/%m/%Y %I:%M %p
