@@ -110,6 +110,11 @@ h3 {
 	padding: 5px;
 }
 
+.planet_entry {
+	max-width: 800px;
+	word-wrap: break-word;
+}
+
 .subscriptions {
 	display: inline-block;
 	width: 20%;
@@ -125,4 +130,3 @@ h3 {
 #footer {
 	padding-top: 10px;
 }
-
