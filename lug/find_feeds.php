@@ -87,13 +87,17 @@ foreach ($elenco_regioni as $region => $name) {
 		list ($prov, $name, $zone, $site) = explode ('|', $lug);
 		$site = check_url ($site);
 
+		echo "$site\n";
+
 		$parser = new SimplePie ();
 		$parser->set_feed_url ($site);
 		$parser->set_autodiscovery_level (SIMPLEPIE_LOCATOR_AUTODISCOVERY);
 		$parser->init ();
 		$parser->handle_content_type ();
-		if ($parser->error ())
+		if ($parser->error ()) {
+			echo $parser->error () . "\n";
 			continue;
+		}
 
 		$discovered = $parser->get_all_discovered_feeds ();
 
@@ -195,8 +199,8 @@ faceheight = 85
 PLANET;
 
 foreach ($feeds as $f) {
+	echo "[" . $f->feed . "]\nname = " . $f->name . "\n\n";
 	$output .= "[" . $f->feed . "]\nname = " . $f->name . "\n\n";
 }
 
 file_put_contents ('config.ini', $output);
-
