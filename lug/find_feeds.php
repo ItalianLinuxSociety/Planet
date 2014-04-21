@@ -87,17 +87,13 @@ foreach ($elenco_regioni as $region => $name) {
 		list ($prov, $name, $zone, $site) = explode ('|', $lug);
 		$site = check_url ($site);
 
-		echo "$site\n";
-
 		$parser = new SimplePie ();
 		$parser->set_feed_url ($site);
 		$parser->set_autodiscovery_level (SIMPLEPIE_LOCATOR_AUTODISCOVERY);
 		$parser->init ();
 		$parser->handle_content_type ();
-		if ($parser->error ()) {
-			echo $parser->error () . "\n";
+		if ($parser->error ())
 			continue;
-		}
 
 		$discovered = $parser->get_all_discovered_feeds ();
 
@@ -179,11 +175,11 @@ encoding = utf-8
 
 # Provide no more than 7 days articles on the front page
 [lug/index.html.tmpl]
-days_per_page = 10
+days_per_page = 7
 
 # If non-zero, all feeds which have not been updated in the indicated
 # number of days will be marked as inactive
-activity_threshold = 60
+activity_threshold = 0
 
 
 # Options placed in the [DEFAULT] section provide defaults for the feed
@@ -198,9 +194,7 @@ faceheight = 85
 
 PLANET;
 
-foreach ($feeds as $f) {
-	echo "[" . $f->feed . "]\nname = " . $f->name . "\n\n";
+foreach ($feeds as $f)
 	$output .= "[" . $f->feed . "]\nname = " . $f->name . "\n\n";
-}
 
 file_put_contents ('config.ini', $output);
