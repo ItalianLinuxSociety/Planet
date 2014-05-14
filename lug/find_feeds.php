@@ -142,7 +142,7 @@ owner_email = carlo@linux.it
 # feed_timeout: number of seconds to wait for any given feed
 cache_directory = lug/cache
 new_feed_items = 3
-log_level = INFO
+log_level = CRITICAL
 feed_timeout = 20
 
 # template_files: Space-separated list of output template files
